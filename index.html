@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Trivia Challenge</title>
+  	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  	<link rel="stylesheet" type=text/css href="assets/css/bootstrap.css">
+  	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <meta name="viewport" content="width-device-width", initial-scale-1">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  </head>
+  <body>
+	
+<div class="container" style="margin-top:50px;">
+  <div class="row"> 
+    <div class="col-sm-12 jumbotron" id = "game-title">
+        <h1 class="text-center">Trivia Challenge!</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12" id = "game-information">
+        <p>Test your knowledge by answering questions before time runs out!</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12" id = "game-question">
+     <!--  <p>Target Score:  <span id="game-goal"></span></p> -->
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-sm-12" id = "game-answer-buttons">
+      <!--   <button class="btn btn-default btn-lg" id="crystal-one-button"><span class="crystal-one"></span> Crystal 1</button>
+        <button class="btn btn-primary btn-lg" id="crystal-two-button"><span class="crystal-two"></span> Crystal 2</button>
+        <button class="btn btn-danger btn-lg" id="crystal-three-button"><span class="crystal-three"></span> Crystal 3</button>
+        <button class="btn btn-warning btn-lg" id="crystal-four-button"><span class="crystal-four"></span> Crystal 4</button> -->
+    </div>
+  </div>
+  <br>
+  <div class="row">
+  <div class="col-sm-12" id = "game-countdown">
+      <p><span id="countdown-text"></span> <span id="countdown-text-time"></span></p>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+  <div class="col-sm-12" id = "game-score">
+      
+      <p>Correct Answers: <span class="win">0</span></p>
+      <p>Incorrect Answers: <span class="loss">0</span></p>
+    </div>
+  </div>
+<!--   <div class="row">
+    <div class="col-sm-12">
+      <p>Current Score: <span id = "game-current-score"></span></p>
+    </div>
+  </div>
+ -->
+<!-- 
+  <div class="row">
+  		<div class="col-sm-12 img-responsive center-block" id = "game-picture"></div><br>
+  </div> -->
+</div>	
+
+ <script type="text/javascript" src="assets/javascript/game.js"></script>
+  </body>
+</html>
