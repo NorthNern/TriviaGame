@@ -11,6 +11,7 @@ var countdown;
 var countdown_number;
 var answered_timeout = false;
 
+//quiz questions, array of objects with a list of questions, answers, and the correct answer.
 var trivia_array = [{
         question : "What color is a black bear?",
         answers : ["Black", "Yellow", "Blue", "Red"],
@@ -26,6 +27,7 @@ var trivia_array = [{
     }
     ];
 
+// first countdown call, set timer at one more than desired wait.
 function countdown_init() {
     answered_timeout = false;
     countdown_number = 4;
@@ -33,6 +35,7 @@ function countdown_init() {
     countdown_trigger();
 }
 
+//timer countsdown, if at 0 goes to the answer function
 function countdown_trigger(){
     if (countdown_number > 0) {
         countdown_number--;
@@ -55,7 +58,7 @@ function countdown_clear(){
     $("#countdown-text-time").empty();
 }
 
-
+//when asking a question, reads current position in question array and adds buttons for answers, as well as adding a data-var for in/correct answer
 function next_question(){
     if (current_question === trivia_array.length){
         game_end();
@@ -65,7 +68,7 @@ function next_question(){
         for (var i = 0; i < trivia_array[current_question].answers.length; i++) {
             var a = $("<button>");
             // Adding a class
-            a.addClass("answer_button btn-primary btn-md");
+            a.addClass("answer_button btn-primary btn-lg");
             // Added a data-attribute
             if (trivia_array[current_question].answers[i] === trivia_array[current_question].correctAnswer){
                 a.attr("data-answer", "correct");
@@ -75,13 +78,14 @@ function next_question(){
             // Provided the initial button text
             a.text(trivia_array[current_question].answers[i]);
             // Added the button to the HTML
-            $("#game-answer-buttons").append(a);
+            $("#game-answer-buttons").append(a).append("  ");
         }
         countdown_init();
 
     }
 };
 
+//when a question answered or timed out, displays info for 3 seconds then calls the next question
 function answer_page() {
     $("#game-information").empty();
     $("#game-questions").empty();
@@ -108,8 +112,9 @@ function answer_page() {
     current_question++;
 }
 
+//end of game
 function game_end() {
-    $("#game-information").html("Phew, that's all the questions for today.  Thanks for playing!  If you'd like to play again, please press press any key.");
+    $("#game-information").html("Phew, that's all the questions for today.  Thanks for playing!  If you'd like to play again, please press any key.");
     $("#game-questions").empty();
     document.onkeyup = function(event) {
         var quiz_ended = "false";
@@ -119,11 +124,11 @@ function game_end() {
     }
 }    
 
-//running the start of game function
+//running the start of game function for the first time, with delay to show instructions
 //TODO: Add document.onkeyup to start when user presses a key?
 setTimeout(next_question,3000);
 
-//on-click functions for each of the four crystals, which reset the start function if game is won/lost
+//on-click functions for each of the answer buttons, which use a data variable stored when button created to check if its the correct answer
 $("#game-answer-buttons").on("click", ".answer_button", function() {
     countdown_clear();
     // console.log("this button worked")
